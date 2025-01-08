@@ -49,13 +49,27 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int n,x1,y1,x2,y2;
-    cin>>n>>x1>>y1>>x2>>y2;
+    int n,d;
+    cin>>n>>d;
 
-    int l1 = min({x1,n-x1+1,y1,n-y1+1});
-    int l2 = min({n-x2+1,x2,n-y2+1,y2});
+    int ans = -1;
+    vi nums;
 
-    cout<<abs(l1-l2)<<"\n";   
+    for(int i=0;i<n;i++){
+        int a;
+        cin>>a;
+
+        nums.pb(a);
+    }
+
+    for(int i=0;i<n-1;i++){
+        if(nums[i+1]-nums[i]<=d){
+            ans = nums[i+1];
+            break;
+        }
+    }
+    cout<<ans;
+    
     
 }
 
@@ -63,12 +77,7 @@ int main() {
     FAST_IO;
     
     // Example Usage
-    int t;
-    cin>>t;
-    
-    while(t--){
-        solve();
-    }
+   solve();
 
     return 0;
 }

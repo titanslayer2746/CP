@@ -49,13 +49,26 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int n,x1,y1,x2,y2;
-    cin>>n>>x1>>y1>>x2>>y2;
+    ll a,b,c,d;
+    cin>>a>>b>>c>>d;
 
-    int l1 = min({x1,n-x1+1,y1,n-y1+1});
-    int l2 = min({n-x2+1,x2,n-y2+1,y2});
+    ll x = a*d;
+    ll y = b*c;
 
-    cout<<abs(l1-l2)<<"\n";   
+    if(x==y){
+        cout<<0;
+    }
+    else if(x==0||y==0){
+        cout<<1;
+    }
+    else if(x%y==0||y%x==0){
+        cout<<1;
+    }
+    else{
+        cout<<2;
+    }
+    
+    cout<<"\n";   
     
 }
 

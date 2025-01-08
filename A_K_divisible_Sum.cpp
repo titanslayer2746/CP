@@ -23,9 +23,7 @@ using vpll = vector<pll>;
 #define rep(i, a, b) for (int i = a; i < b; ++i)
 #define rrep(i, a, b) for (int i = a; i >= b; --i)
 #define each(x, v) for (auto &x : v)
-#define sort(v) sort(v.begin(), v.end())
-#define rsort(v) sort(v.rbegin(), v.rend())
-#define sum(v) accumulate(v.begin(), v.end(), 0)
+#define all(v) v.begin(), v.end()
 #define rall(v) v.rbegin(), v.rend()
 
 // Macros for Debugging
@@ -51,10 +49,18 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int n;
-    cin>>n;
-    
-    
+    ll n,k;
+    cin>>n>>k;
+
+    if(k>=n){
+        cout<<to_string((ll)ceil(k*1.0/n));
+    }
+    else{
+        ll num = ceil(n*1.0/k)*k;
+        cout<<to_string((ll)ceil((num*1.0)/n));
+    }
+
+    cout<<"\n";      
 }
 
 int main() {
