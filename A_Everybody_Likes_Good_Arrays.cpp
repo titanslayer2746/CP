@@ -74,7 +74,7 @@ void solve(){
 
     ans += cnt;
 
-    cout<<ans<<"\n";
+    cout<<ans<<endl;
     
     
 }
