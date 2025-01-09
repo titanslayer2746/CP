@@ -48,25 +48,55 @@ using vpll = vector<pll>;
 #define clr(x) memset(x, 0, sizeof(x))
 #define setneg(x) memset(x, -1, sizeof(x))
 
-void solve(){
-    int h,w;
-    cin>>h>>w;
-
-    for(int i=0;i<h;i++){
-        for(int j=0;j<w;j++){
-            int a;
-            cin>>a;
-
-            if(a==0) {
-                cout<<".";
-            }
-            else{
-                cout<<char( a - 1 + 'A');
-            }
-        }
-        cout<<"\n";
+bool isSquare(ll x){
+    double y = sqrt(x);
+    if(ceil(y)==floor(y)){
+        return true;
     }
+    return false;
+}
+
+void solve(){
+    ll n;
+    cin>>n;
+
+    double temp = sqrt(n);
+    if(ceil(temp)==floor(temp)){
+        cout<<(int)temp<<" "<<1<<"\n";
+        return;
+    }
+
+    ll next_square = n;
+    ll last_square = n;
+
+    while(!isSquare(next_square)){
+        next_square++;
+    }
+
+    while(!isSquare(last_square)){
+        last_square--;
+    }
+
+    int a = (int)sqrt(last_square);
+    int b = (int)sqrt(next_square);
     
+    int row,col;
+
+    if(n-last_square>a){
+        row = a+1;
+    }  
+    else{
+        row = n-last_square;
+    }
+
+    if(next_square-n>=b){
+        col = b;
+    }
+    else{
+        col = next_square - n + 1;
+    }
+
+    cout<<row<<" "<<col<<"\n";
     
 }
 
@@ -74,7 +104,12 @@ int main() {
     FAST_IO;
     
     // Example Usage
-    solve();
+    int t;
+    cin>>t;
+    
+    while(t--){
+        solve();
+    }
 
     return 0;
 }

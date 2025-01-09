@@ -49,24 +49,35 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int h,w;
-    cin>>h>>w;
+    int n,m;
+    cin>>n>>m;
 
-    for(int i=0;i<h;i++){
-        for(int j=0;j<w;j++){
-            int a;
-            cin>>a;
+    vector<string> strs1;
+    vector<string> strs2;
+    for(int i=0;i<n;i++){
+        string s;
+        cin>>s;
 
-            if(a==0) {
-                cout<<".";
-            }
-            else{
-                cout<<char( a - 1 + 'A');
-            }
-        }
-        cout<<"\n";
+        strs1.pb(s.substr(3,3));
+    }
+
+    for(int i=0;i<m;i++){
+        string s;
+        cin>>s;
+
+        strs2.pb(s);
     }
     
+    sort(all(strs1));
+    sort(all(strs2));
+
+    int cnt = 0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(strs1[i]==strs2[j]) cnt++;
+        }
+    }
+    cout<<cnt;
     
 }
 

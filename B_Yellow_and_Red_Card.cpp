@@ -49,31 +49,37 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int h,w;
-    cin>>h>>w;
+    int n,q;
+    cin>>n>>q;
 
-    for(int i=0;i<h;i++){
-        for(int j=0;j<w;j++){
-            int a;
-            cin>>a;
+    unordered_map<int,int> mpp;
 
-            if(a==0) {
-                cout<<".";
+    for(int i=0;i<q;i++){
+        int a,b;
+        cin>>a>>b;
+
+        if(a==1){
+            mpp[b]++;
+        }
+        else if(a==2){
+            mpp[b] += 2;
+        }
+        else{
+            if(mpp[b]<2){
+                cout<<"No";
             }
             else{
-                cout<<char( a - 1 + 'A');
+                cout<<"Yes";
             }
+            cout<<"\n";
         }
-        cout<<"\n";
     }
-    
-    
+     
 }
 
 int main() {
     FAST_IO;
     
-    // Example Usage
     solve();
 
     return 0;

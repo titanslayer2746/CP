@@ -49,24 +49,25 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int h,w;
-    cin>>h>>w;
+    string s;
+    cin>>s;
 
-    for(int i=0;i<h;i++){
-        for(int j=0;j<w;j++){
-            int a;
-            cin>>a;
+    unordered_map<char,int> mpp;
 
-            if(a==0) {
-                cout<<".";
-            }
-            else{
-                cout<<char( a - 1 + 'A');
-            }
-        }
-        cout<<"\n";
+    for(auto c : s){
+        mpp[c]++;
     }
-    
+
+    int diff = 0;
+
+    for(auto it : mpp){
+        if(it.second>2){
+            diff += (it.second-2); 
+        }
+    }
+
+    int n = s.size() - diff;
+    cout<<n/2<<"\n";   
     
 }
 
@@ -74,7 +75,12 @@ int main() {
     FAST_IO;
     
     // Example Usage
-    solve();
+    int t;
+    cin>>t;
+    
+    while(t--){
+        solve();
+    }
 
     return 0;
 }
