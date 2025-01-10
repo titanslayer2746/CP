@@ -21,6 +21,8 @@ void generateRandomNumbers(int n) {
         }
     }
 
+    sort(randomNumbers.begin(),randomNumbers.end());
+
     cout << "Revision Questions: ";
     for (int num : randomNumbers) {
         cout << num << " ";
