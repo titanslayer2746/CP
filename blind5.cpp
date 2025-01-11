@@ -7,7 +7,8 @@
 using namespace std;
 
 void generateRandomNumbers(int n) {
-    if (n < 5) { cout << "Error: n must be at least 5.\n";
+    if (n < 13) { 
+        cout << "Error: n must be at least 13.\n";
         return;
     }
 
@@ -15,13 +16,13 @@ void generateRandomNumbers(int n) {
     vector<int> randomNumbers;
 
     while (randomNumbers.size() < 5) {
-        int randomNumber = rand() % n + 1; // Generate a random number between 1 and n
+        int randomNumber = rand() % (n - 13 + 1) + 13; // Generate a random number between 13 and n
         if (find(randomNumbers.begin(), randomNumbers.end(), randomNumber) == randomNumbers.end()) {
             randomNumbers.push_back(randomNumber);
         }
     }
 
-    sort(randomNumbers.begin(),randomNumbers.end());
+    sort(randomNumbers.begin(), randomNumbers.end());
 
     cout << "Revision Questions: ";
     for (int num : randomNumbers) {

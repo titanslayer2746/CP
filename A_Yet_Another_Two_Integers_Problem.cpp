@@ -49,27 +49,16 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    ll n,k;
-    cin>>n>>k;
+    ll a,b;
+    cin>>a>>b;
 
-    if(k>(n+1)/2){
-        cout<<-1<<"\n";
-        return;
-    }
+    ll diff = abs(a-b);
 
-    vector<vector<string>> nums(n,vector<string>(n,"."));
+    if(diff==0) cout<<0;
+    else if(diff%10==0) cout<<diff/10;
+    else cout<<diff/10+1;
 
-    for(int i=0;i<n&&k>0;i+=2){
-        nums[i][i] = "R";
-        k--;
-    }
-
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            cout<<nums[i][j];
-        }
-        cout<<"\n";
-    }
+    cout<<"\n";   
     
 }
 
