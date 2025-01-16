@@ -49,26 +49,62 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int n;
-    cin>>n;
+    int n,k;
+    cin>>n>>k;
 
-    vi nums(n);
+    vi nums;
     for(int i=0;i<n;i++){
-        cin>>nums[i];
+        int a;
+        cin>>a;
+
+        nums.pb(a);
     }
 
-    int maxCnt = 0;
+    int first_occurrence = 0;
+    int last_occurence = 0;
 
-    for(int i=0;i<n;i++){
-        int cnt = 1;
-        for(int j=i+1;j<n;j++){
-            if(nums[i]>=nums[j]) cnt++;
-        }
-        maxCnt = max(maxCnt,cnt);
-    }
+    unordered_map<int,int> mpp;
 
-    cout<<n-maxCnt<<endl;
     
+    rep(i,0,n){
+        mpp[nums[i]]++;    
+    }
+
+    if(mpp[k]==0||mpp[k]>=(n+1)/2){
+        cout<<0<<"\n";
+        return;
+    }
+
+    for(int i=0;i<n;i++){
+        if(nums[i]==k) {
+            first_occurrence = i;
+            break;
+        }
+    }
+
+    for(int i=n-1;i>=0;i--){
+        if(nums[i]==k){
+            last_occurence = i;
+            break;
+        }
+    }
+
+    if(last_occurence==n-1||first_occurrence==0){
+        cout<<1<<"\n";
+        return;
+    }
+
+    if(last_occurence==n-2||first_occurrence==1){
+        cout<<1<<"\n";
+        return;
+    }
+
+    if(mpp[k]>=(n-first_occurrence+1)/2||mpp[k]>=(last_occurence+2)/2){
+        cout<<1<<"\n";
+        return;
+    }
+
+    cout<<2<<"\n";
     
 }
 

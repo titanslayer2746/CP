@@ -49,25 +49,22 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int n;
-    cin>>n;
+    int n,k;
+    cin>>n>>k;
 
-    vi nums(n);
+    string s;
+    cin>>s;
+
+    unordered_map<char,int> mpp;
     for(int i=0;i<n;i++){
-        cin>>nums[i];
+        mpp[s[i]]++;
+    }
+    int cnt = 0;
+    for(auto it : mpp){
+        if(it.second%2!=0) cnt++;
     }
 
-    int maxCnt = 0;
-
-    for(int i=0;i<n;i++){
-        int cnt = 1;
-        for(int j=i+1;j<n;j++){
-            if(nums[i]>=nums[j]) cnt++;
-        }
-        maxCnt = max(maxCnt,cnt);
-    }
-
-    cout<<n-maxCnt<<endl;
+    cout<<(k>=cnt-1 ? "YES" : "NO")<<"\n";
     
     
 }

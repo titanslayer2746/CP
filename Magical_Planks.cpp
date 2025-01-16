@@ -51,23 +51,17 @@ using vpll = vector<pll>;
 void solve(){
     int n;
     cin>>n;
+    string s;
+    cin>>s;
 
-    vi nums(n);
-    for(int i=0;i<n;i++){
-        cin>>nums[i];
-    }
-
-    int maxCnt = 0;
-
-    for(int i=0;i<n;i++){
-        int cnt = 1;
-        for(int j=i+1;j<n;j++){
-            if(nums[i]>=nums[j]) cnt++;
+    int cnt = 0;
+    rep(i,0,n-1){
+        if(s[i]!=s[i+1]){
+            cnt++;
         }
-        maxCnt = max(maxCnt,cnt);
     }
 
-    cout<<n-maxCnt<<endl;
+    cout<<(cnt+1)/2<<"\n";
     
     
 }
