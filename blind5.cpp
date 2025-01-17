@@ -38,6 +38,28 @@ string getRandomTopic(const vector<string>& topics) {
 }
 
 
+void outputRandomElement() {
+    // Define the array
+    vector<string> topics = {
+        "Problem A grind",
+        "Greedy Algorithms",
+        "Bit Manipulation",
+        "Recursion and Backtracking",
+        "Prefix Sum and Difference Array",
+        "Problem B grind"
+    };
+
+    // Seed the random number generator
+    srand(static_cast<unsigned>(time(0)));
+
+    // Generate a random index
+    int randomIndex = rand() % topics.size();
+
+    // Output the random element
+    cout << "Today's CP topic is: " << topics[randomIndex] << endl;
+}
+
+
 int main() {
     int n;
     cout << "Enter total questions solved: ";
@@ -63,7 +85,7 @@ int main() {
 
     generateRandomNumbers(n);
 
-    cout << "Today's topic is : " << getRandomTopic(topics) << endl;
+    cout << "Today's DSA topic is : " << getRandomTopic(topics) << endl;
 
     return 0;
 }
