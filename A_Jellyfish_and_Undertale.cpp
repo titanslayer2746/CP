@@ -49,27 +49,19 @@ using vpll = vector<pll>;
 #define setneg(x) memset(x, -1, sizeof(x))
 
 void solve(){
-    int n,k;
-    cin>>n>>k; 
+    long long a,b,n;
+    cin>>a>>b>>n;
 
-    vi p(n+1,0);
+    long long sum = 0;
+    for(int i=0;i<n;i++){
+        long long x;
+        cin>>x;
 
-    int num = 1;
-    for(int i=1;i<=n/k;i++){
-        p[i*k] = num;
-        num++;
-    }
-    for(int i=1;i<=n;i++){
-        if(p[i]==0){
-            p[i] = num;
-            num++;
-        }
-    }
-    for(int i=1;i<=n;i++){
-        cout<<p[i]<<" ";
+        sum += min(a-1,x);
     }
 
-    cout<<"\n";
+    cout<<sum+b<<"\n";
+    
     
 }
 
