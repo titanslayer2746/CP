@@ -7,16 +7,12 @@
 using namespace std;
 
 void generateRandomNumbers(int n) {
-    if (n < 13) { 
-        cout << "Error: n must be at least 13.\n";
-        return;
-    }
 
     srand(time(0)); // Seed the random number generator with the current time
     vector<int> randomNumbers;
 
-    while (randomNumbers.size() < 5) {
-        int randomNumber = rand() % (n - 13 + 1) + 13; // Generate a random number between 13 and n
+    while (randomNumbers.size() < 7) {
+        int randomNumber = rand() % (n - 34 + 1) + 34; // Generate a random number between 34 and n
         if (find(randomNumbers.begin(), randomNumbers.end(), randomNumber) == randomNumbers.end()) {
             randomNumbers.push_back(randomNumber);
         }
@@ -70,14 +66,14 @@ int main() {
         "Sorting", "Greedy", "Depth-First Search", "Binary Search", "Matrix",
         "Tree", "Breadth-First Search", "Bit Manipulation", "Two Pointers",
         "Prefix Sum", "Heap (Priority Queue)", "Binary Tree", "Stack", "Graph",
-        "Counting", "Sliding Window", "Backtracking", "Enumeration", "Union Find",
+        "Counting", "Sliding Window", "Backtracking", "Union Find",
         "Linked List", "Ordered Set", "Number Theory", "Monotonic Stack",
         "Segment Tree", "Trie", "Bitmask", "Divide and Conquer", "Combinatorics",
         "Queue", "Recursion", "Binary Indexed Tree", "Geometry",
         "Binary Search Tree", "Hash Function", "Memoization", "String Matching",
         "Topological Sort", "Shortest Path", "Rolling Hash", "Game Theory",
-        "Data Stream", "Monotonic Queue", "Brainteaser", "Randomized",
-        "Merge Sort", "Doubly-Linked List", "Counting Sort", "Iterator",
+        "Monotonic Queue", "Brainteaser",
+        "Merge Sort", "Doubly-Linked List", "Counting Sort",
         "Quickselect", "Suffix Array", "Bucket Sort", "Minimum Spanning Tree",
         "Strongly Connected Component", "Radix Sort", "Biconnected Component"
     };
