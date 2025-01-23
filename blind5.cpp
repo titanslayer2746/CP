@@ -11,7 +11,7 @@ void generateRandomNumbers(int n) {
     srand(time(0)); // Seed the random number generator with the current time
     vector<int> randomNumbers;
 
-    while (randomNumbers.size() < 7) {
+    while (randomNumbers.size() < 5) {
         int randomNumber = rand() % (n - 34 + 1) + 34; // Generate a random number between 34 and n
         if (find(randomNumbers.begin(), randomNumbers.end(), randomNumber) == randomNumbers.end()) {
             randomNumbers.push_back(randomNumber);
