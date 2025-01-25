@@ -64,7 +64,7 @@ int main() {
     vector<string> topics = {
         "Array", "String", "Hash Table", "Dynamic Programming", "Math",
         "Sorting", "Greedy", "Depth-First Search", "Binary Search", "Matrix",
-        "Tree", "Breadth-First Search", "Bit Manipulation", "Two Pointers",
+        "Tree", "AVL trees", "Fenwick trees", "Segment trees", "Breadth-First Search", "Bit Manipulation", "Two Pointers",
         "Prefix Sum", "Heap (Priority Queue)", "Binary Tree", "Stack", "Graph",
         "Counting", "Sliding Window", "Backtracking", "Union Find",
         "Linked List", "Ordered Set", "Number Theory", "Monotonic Stack",
