@@ -3,17 +3,22 @@
 #include <ctime>
 #include <vector>
 #include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
 
-void generateRandomNumbers(int n) {
 
-    srand(time(0)); // Seed the random number generator with the current time
+
+void generateFilteredRandomNumbers(int n,vector<int>& skipList) {
+
+    srand(time(0)); // Seed the random number generator
+    unordered_set<int> skipSet(skipList.begin(), skipList.end()); // Store skipped questions in a set
     vector<int> randomNumbers;
 
     while (randomNumbers.size() < 5) {
         int randomNumber = rand() % (n - 34 + 1) + 34; // Generate a random number between 34 and n
-        if (find(randomNumbers.begin(), randomNumbers.end(), randomNumber) == randomNumbers.end()) {
+        if (skipSet.find(randomNumber) == skipSet.end() && 
+            find(randomNumbers.begin(), randomNumbers.end(), randomNumber) == randomNumbers.end()) {
             randomNumbers.push_back(randomNumber);
         }
     }
@@ -26,6 +31,7 @@ void generateRandomNumbers(int n) {
     }
     cout << "\n";
 }
+
 
 string getRandomTopic(const vector<string>& topics) {
     srand(time(0)); // Initialize random seed
@@ -78,8 +84,12 @@ int main() {
         "Strongly Connected Component", "Radix Sort", "Biconnected Component"
     };
 
+    vector<int> skipQuestions = {
+        35,39,40,41,42,43,44,45,46,47,48,49,50,51,52,55,56,76,75,130
+    };
 
-    generateRandomNumbers(n);
+
+    generateFilteredRandomNumbers(n,skipQuestions);
 
     cout << "Today's DSA topic is : " << getRandomTopic(topics) << endl;
 
